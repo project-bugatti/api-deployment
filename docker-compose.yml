@@ -3,7 +3,7 @@ version: '3.1'
 services:
 
   bugatti-api:
-    image: tgalske/bugatti-api
+    image: "gcmedia/api:${TAG}"
     env_file:
       - .env
     restart: always
@@ -12,11 +12,11 @@ services:
     ports:
       - "3000:3000"
     labels:
-      - "traefik.backend=bugatti-api"
+      - "traefik.backend=api"
       - "traefik.docker.network=bugatti-net"
       - "traefik.enable=true"
       - "traefik.protocol=http"
-      - "traefik.frontend.rule=Host:bugatti-api.thegc.cf"
+      - "traefik.frontend.rule=Host:api.thegc.cf"
       - "traefik.port=3000"
 networks:
   bugatti-net:
